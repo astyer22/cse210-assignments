@@ -142,7 +142,7 @@ class Order
         _customer.Add(customer);
     }
 
-    public int GerShippingCost()
+    public int GetShippingCost()
     {
         return _shippingCost;
     }

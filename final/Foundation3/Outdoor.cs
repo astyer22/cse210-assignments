@@ -16,11 +16,11 @@ namespace Foundation3
 
         public string GetWeather()
         {
-            return _weather;
+            return _weatherForcast;
         }
         public void SetWeather(string weather)
         {
-            _weather = weather;
+            _weatherForcast = weather;
         }
 
         public override string GetStandardDetails()

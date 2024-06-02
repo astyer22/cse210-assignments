@@ -1,10 +1,10 @@
 namespace Foundation4
 {
-    public class StaionaryBicycles : Activity
+    public class StationaryBicycles : Activity
     {
         private double _speed;
 
-        public StaionaryBicycles(int minutes, string date, int speed) : base(minutes, date)
+        public StationaryBicycles(int minutes, string date, int speed) : base(minutes, date)
         {
             _speed = speed;
         }

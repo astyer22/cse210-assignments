@@ -9,7 +9,7 @@ namespace Foundation4
             _laps = laps;
         }
 
-        public override double Distance() =>Math.Round(_laps * 50/1000 * 0.621371);
+        public override double Distance() => Math.Round(_laps * 50 / 1000 * 0.621371);
         public void SetLaps(int laps) => _laps = laps;
 
         public override int Speed() => Math.Round(_laps / GetLengthInMinutes());

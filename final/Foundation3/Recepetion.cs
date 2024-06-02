@@ -1,6 +1,6 @@
 namespace Foundation3
 {
-    public class Receptions: Event
+    public class Reception: Event
     {
         private string _rsvpEmail;
 
@@ -18,7 +18,7 @@ namespace Foundation3
             return $"{base.GetStandardDetails()}";
         }
 
-        public string GetFullDetails()
+        public override string GetFullDetails()
         {
             return $"{GetStandardDetails()}\nEvent Type: Reception\nRSVP Email: {_rsvpEmail}";
         }

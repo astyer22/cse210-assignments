@@ -10,7 +10,7 @@ namespace Foundation4
         {
             _lengthInMinutes = minutes;
             _date = date;
-            _activityType = activity
+            _activityType = activity;
         }
 
         public string GetDate() => _date;
@@ -21,12 +21,12 @@ namespace Foundation4
         public void SetActivity(string activity) => _activityType = activity;
 
         public virtual int Distance() => 0.0;
-       public virtual double Speed() => Math.Round((Distance() / _lengthInMinutes) * 60, 2);
-        public virtual double Pace() => Math.Round((double)_lengthInMinutes / Distance(), 2); 
+        public virtual double Speed() => Math.Round((Distance() / _lengthInMinutes) * 60, 2);
+        public virtual double Pace() => Math.Round((double)_lengthInMinutes / Distance(), 2);
 
-        public virtual GetSummary()
+        public virtual string GetSummary()
         {
-             return $"{_date} {_activityType} ({_lengthInMinutes} min) - Distance: {Distance()} miles, Speed: {Speed()} mph, Pace: {Pace()} min per mile.";
+            return $"{_date} {_activityType} ({_lengthInMinutes} min) - Distance: {Distance()} miles, Speed: {Speed()} mph, Pace: {Pace()} min per mile.";
         }
     }
 }
