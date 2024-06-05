@@ -30,7 +30,7 @@ namespace Foundation3
 
         public override string GetFullDetails()
         {
-            return $"{GetStandardDetails()}\nEvent Type: Outdoor\nWeather Forecast: {_weatherForecast}";
+            return $"{GetStandardDetails()}\nEvent Type: Outdoor\nWeather Forecast: {_weatherForcast}";
         }
 
         public override string GetShortDescription()
