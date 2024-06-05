@@ -1,32 +1,27 @@
-namespace Foundation4
+// Base Activity class
+public abstract class Activity
 {
-    public class Activity
+    private DateTime date;
+    private int duration; // in minutes
+
+    public Activity(DateTime date, int duration)
     {
-        private int _lengthInMinutes;
-        private string _date;
-        private string _activityType;
+        this.date = date;
+        this.duration = duration;
+    }
 
-        public Activity(int minutes, string date, string activity)
-        {
-            _lengthInMinutes = minutes;
-            _date = date;
-            _activityType = activity;
-        }
+    public DateTime Date { get => date; }
+    public int Duration { get => duration; }
 
-        public string GetDate() => _date;
-        public void SetDate(string date) => _date = date;
-        public int GetLengthInMinutes() => _lengthInMinutes;
-        public void SetLengthInMinutes(int minutes) => _lengthInMinutes = minutes;
-        public string GetActivity() => _activityType;
-        public void SetActivity(string activity) => _activityType = activity;
+    // Virtual methods for derived classes to override
+    public abstract double GetDistance();
+    public abstract double GetSpeed();
+    public abstract double GetPace();
 
-        public virtual int Distance() => 0.0;
-        public virtual double Speed() => Math.Round((Distance() / _lengthInMinutes) * 60, 2);
-        public virtual double Pace() => Math.Round((double)_lengthInMinutes / Distance(), 2);
-
-        public virtual string GetSummary()
-        {
-            return $"{_date} {_activityType} ({_lengthInMinutes} min) - Distance: {Distance()} miles, Speed: {Speed()} mph, Pace: {Pace()} min per mile.";
-        }
+    // GetSummary method to produce summary information
+    public virtual string GetSummary()
+    {
+        return $"{Date.ToString("dd MMM yyyy")} {this.GetType().Name} ({Duration} min) - " +
+               $"Distance: {GetDistance():F2} miles, Speed: {GetSpeed():F2} mph, Pace: {GetPace():F2} min per mile";
     }
 }

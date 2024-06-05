@@ -1,19 +1,26 @@
-namespace Foundation4
+// Derived Running class
+public class Running : Activity
 {
-    public class Running : Activity
+    private double distance; // in miles
+
+    public Running(DateTime date, int duration, double distance)
+        : base(date, duration)
     {
-        private double _distance;
+        this.distance = distance;
+    }
 
-        public Running(int minutes, string date, int distance) : base(minutes, date)
-        {
-            _distance = distance;
-        }
+    public override double GetDistance()
+    {
+        return distance;
+    }
 
-        public override int Distance() => _distance;
-        public override string GetSummary()
-        {
-            return $"{GetDate()} {GetActivity()} ({GetLengthInMinutes()} min) - Distance: {Distance()} miles, Speed: {Speed()} mph, Pace: {Pace()} min per mile.";
-        }
+    public override double GetSpeed()
+    {
+        return (distance / Duration) * 60;
+    }
 
+    public override double GetPace()
+    {
+        return Duration / distance;
     }
 }

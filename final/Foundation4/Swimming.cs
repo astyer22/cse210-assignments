@@ -1,24 +1,29 @@
-namespace Foundation4
+namespace Foundation4 // Replace YourNamespace with the actual namespace
 {
+    // Derived Swimming class
     public class Swimming : Activity
     {
-        private int _laps;
+        private readonly int laps;
 
-        public Swimming(int minutes, string date, int laps) : base(minutes, date)
+        public Swimming(DateTime date, int duration, int laps)
+            : base(date, duration)
         {
-            _laps = laps;
+            this.laps = laps;
         }
 
-        public override double Distance() => Math.Round(_laps * 50 / 1000 * 0.621371);
-        public void SetLaps(int laps) => _laps = laps;
-
-        public override int Speed() => Math.Round(_laps / GetLengthInMinutes());
-
-        public override int Pace() => Math.Round(GetLengthInMinutes() / _laps);
-
-        public override string GetSummary()
+        public override double GetDistance()
         {
-            return $"{GetDate()} {GetActivity()} ({GetLengthInMinutes()} min) - Distance: {Distance()} miles, Speed: {Speed()} mph, Pace: {Pace()} min per mile.";
+            return laps * 50 / 1000 * 0.62; // Convert meters to miles
         }
-    }
+
+        public override double GetSpeed()
+        {
+            return GetDistance() / Duration * 60;
+        }
+
+        public override double GetPace()
+        {
+            return Duration / GetDistance();
+        }
+      }
 }

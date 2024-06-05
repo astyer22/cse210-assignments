@@ -307,5 +307,8 @@ namespace EternalQuest
         {
             return $"ChecklistGoal;{Description};{Points};{Target};{Bonus};{TimesCompleted}";
         }
+
+        
+
     }
 }
